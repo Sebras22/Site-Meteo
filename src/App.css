@@ -1,0 +1,85 @@
+* {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    margin: 0px;
+}
+
+body {
+    width: 98vw;
+    height: 100vh;
+    background: center / contain no-repeat
+        url(https://images.pexels.com/photos/361104/pexels-photo-361104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+}
+
+button {
+    border-radius: 0 10px 10px 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    background-color: white;
+    margin-left: 2px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: rgb(183, 234, 132);
+    color: white;
+}
+
+.Titre {
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}
+
+.Barre {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+input {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+}
+
+.Ville {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.container {
+    border-radius: 40px;
+    padding: 20px;
+    margin: 3rem;
+    backdrop-filter: blur(10px);
+}
+
+.undercontainer {
+    column-count: 2;
+}
+
+.Jour {
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.Info {
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
