@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./App.css";
+import Nuage from './components/Nuage.jsx';
 
 function App() {
     const getData = async (latitude, longitude) => {
         const response = await fetch(
-            `https://api.open-meteo.com/v1/meteofrance?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max&start_date=${getDate()}&end_date=${getDate(
+            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,&daily=sunrise,sunset,temperature_2m_min,precipitation_sum,precipitation_probability_max,windspeed_10m_max&start_date=${getDate()}&end_date=${getDate(
                 true
             )}&timezone=Europe%2FBerlin`
         );
@@ -89,13 +90,21 @@ function App() {
             t: semaine[today.getDay()],
             n: mois[today.getMonth()],
         };
-        return `${time.t} ${time.d} ${time.n} ${time.y}`;
+        return `${time.t} ${time.d} ${time.n}`;
+    };
+
+    const getHours = (timestamp) => {
+        const levesoleil = new Date(timestamp);
+        const heures = levesoleil.getHours();
+        const min = levesoleil.getMinutes();
+
+        return `${heures}h${min < 10 ? 'O' : ''}${min}`
     };
 
     const getDate = (isAdd = false) => {
         let today = new Date();
         if (isAdd) {
-            today.setDate(today.getDate() + 2);
+            today.setDate(today.getDate() + 5);
         }
         let time = {
             y: today.getFullYear(),
@@ -116,29 +125,33 @@ function App() {
 
     return (
         <div className="body">
+            <div className="header">
+                    <p className="Titre">
+                        <strong>Direct Meteo</strong>
+                    </p>
+                <form className="Barre" onSubmit={getPosition}>
+                    {" "}
+                    <input
+                        type="text"
+                        placeholder="Ville"
+                        name=""
+                        id=""
+                        onChange={(event) => setVille(event.target.value)}
+                        />
+                    <button>Rechercher</button>
+                </form>
+                
+            </div>
             <div>
-                <p className="Titre">
-                    <strong>DirectMétéo</strong>
-                </p>
+                {ville == "" ? "" :      <div className="Ville">  {city}, {pays}  </div>}
+                {lat == "" ? "" :      <div className="Coordonnées"> {lat} - {long}  </div>}
             </div>
-            <form className="Barre" onSubmit={getPosition}>
-                {" "}
-                <input
-                    type="text"
-                    placeholder="Ville"
-                    name=""
-                    id=""
-                    onChange={(event) => setVille(event.target.value)}
-                />
-                <button>Rechercher</button>
-            </form>
-            <div className="Ville">
-                {city}, {pays}
+            <div>
+        
             </div>
-            <br />
-            <div className="Ville">
-                {lat} - {long}
-            </div>
+            {/* <Nuage /> */}
+            <div className="Disposition">
+
             {!error &&
                 data?.daily?.time.map((el, index) => {
                     return (
@@ -149,11 +162,12 @@ function App() {
                                     Température Max:{" "}
                                     {data?.daily?.temperature_2m_max[index] ==
                                     null
-                                        ? "Aucune Information Disponible"
-                                        : data?.daily?.temperature_2m_max[
-                                              index
-                                          ]}{" "}
+                                    ? "Aucune Information Disponible"
+                                    : data?.daily?.temperature_2m_max[
+                                        index
+                                    ]}{" "}
                                     C° <br />
+                                    {data?.daily?.temperature_2m_max[index] > 20 ? "IL FAIT CHAUD" : "IL FAIT FROID"}
                                     <br />
                                     Température Min:{" "}
                                     {data?.daily?.temperature_2m_min[index] ==
@@ -162,32 +176,48 @@ function App() {
                                         : data?.daily?.temperature_2m_min[
                                               index
                                           ]}{" "}
-                                    C°
+                                    °C
                                 </div>
                                 <div className="Info">
                                     Précipitation:{" "}
                                     {data?.daily?.precipitation_sum[index] ==
                                     null
-                                        ? "Aucune Information Disponible"
-                                        : data?.daily?.precipitation_sum[
+                                    ? "Aucune Information Disponible"
+                                    : data?.daily?.precipitation_sum[
                                               index
-                                          ]}{" "}
+                                            ]}{" "}
                                     mm <br />
+                                    <br />
+                                    Sunrise:{getHours(data?.daily?.sunrise[index])}
+                                    <br />
+                                    Sunset:{getHours(data?.daily?.sunset[index])}
                                     <br />
                                     Vitesse de vent:{" "}
                                     {data?.daily?.windspeed_10m_max[index] ==
                                     null
-                                        ? "Aucune Information Disponible"
-                                        : data?.daily?.windspeed_10m_max[
-                                              index
-                                          ]}{" "}
+                                    ? "Aucune Information Disponible"
+                                    : data?.daily?.windspeed_10m_max[
+                                        index
+                                    ]}{" "}
                                     km/h
+                                </div>
+                                <div className="Info">
+                                    Probabilité de Précipitation:{" "}
+                                    {data?.daily?.precipitation_probability_max[index] ==
+                                    null
+                                    ? "Aucune Information Disponible"
+                                    : data?.daily?.precipitation_probability_max[
+                                        index
+                                    ]}{" "}
+                                    % <br />
                                 </div>
                             </div>
                         </div>
                     );
                 })}
+                </div>
         </div>
+
     );
 }
 

@@ -1,0 +1,33 @@
+.cloud {
+    width: 200px;
+    height: 100px;
+    background: #fff;
+    position: absolute;
+    top: 50px;
+    border-radius: 50px;
+    animation: moveCloud 10s linear infinite;
+    transition: O.3s;
+    z-index: 0;
+  }
+  
+
+  .cloud2 {
+    width: 200px;
+    height: 100px;
+    background: #fff;
+    position: absolute;
+    top: 30px;
+    border-radius: 50px;
+    animation: moveCloud 10s linear infinite;
+    transition: O.3s;
+    z-index: 0;
+  }
+  @keyframes moveCloud {
+    0% {
+      left: -250px;
+    }
+    100% {
+      left: 100%;
+      transition:  0.3;
+    }
+  }
