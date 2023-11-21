@@ -4,20 +4,65 @@
     margin: 0px;
 }
 
-#root{
-    width: 100vw;
-    height: 100vh;
-   background-color: #3D3D3D;
+
+body {
+    overflow-x: hidden;
+    background-color: #3D3D3D;
+    max-width: 1800px;
+    position: relative;
 }
 
 
+
+/* Haut de page | Header */
 
 .header{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 50px;
     padding: 30px;
 }
+
+.headergauche{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.headerdroit{
+    width: 50rem;
+    display: flex;
+    justify-content: end;
+    gap: 30px;
+    margin-right: 0px;
+}
+
+.descriptif {
+    position: relative;
+    width: 25rem;
+    height: 10rem;
+}
+
+.image {
+    border-radius: 20px;
+    width: 25rem;
+    height: 10rem;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .InfoDirect {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    text-align:start;
+    color: white; /* Couleur du texte */
+    font-size: xx-large;
+    min-width: 20rem;
+  }
 
 .Titre {
     z-index: 4;
@@ -26,6 +71,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 button {
     border-radius: 0 10px 10px 0;
@@ -45,10 +91,6 @@ button:hover {
 }
 
 
-img{
-    width: 10rem;
-    height: 10rem;
-}
 
 
 .Barre {
@@ -67,6 +109,8 @@ input {
     outline: none;
 }
 
+/* Ville & Coordonnées | City & geographic coordinates */
+
 .Ville {
     font-weight: bold;
     display: flex;
@@ -84,54 +128,267 @@ input {
     color: white;
 }
 
-.container {
-    border-radius: 40px;
-    padding: 20px;
-    padding: 2rem;
-    height: 30rem;
-    width: 50rem;
-    margin: 1rem;
-    background: linear-gradient(153deg, #3A89FF 0.62%, #69FFFF 100%);
-}
-
+/* Section Météo | Weather Section */
 
 .Disposition{
     display: flex;
-    gap: 3rem;
-    justify-content: flex-start;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-        
+    justify-content: space-between;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    overflow-x: visible;
+    margin-bottom: 20px;
 }
 
-.undercontainer {
-    column-count: 2;
+
+.container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 40px;
+    padding: 20px;
+    padding: 2rem;
+    min-height: 30rem;
+    min-width: 16rem;
+    margin: 1rem;
+    border-radius: 20px;
+    background: linear-gradient(153deg, #0047b3 0.62%, #0054a3, #0095a8 100%);
+}
+
+
+.container1 {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 40px;
+    padding: 20px;
+    padding: 2rem;
+    min-height: 30rem;
+    min-width: 16rem;
+    margin: 1rem;
+    border-radius: 20px;
+    background: linear-gradient(157deg, #ff4800 1.14%, #f99500 100%);
+
+
 }
 
 .Jour {
     color: aliceblue;
-    display: flex;
-    justify-content: center;
-    font-size: larger;
+    font-size: 2rem;
     font-weight: bold;
+    white-space: nowrap;
+    word-wrap: break-word;
+    width: 1rem;
 }
 
-.Info {
-    color: aliceblue;
+.CardHaut{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
 }
 
-::-webkit-scrollbar-track {
-    background-color: #f5f5f500;
+.SunDisposition{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.SunBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Sunrise{
+    margin-top: 6px;
+    width: 2.5rem;
+    height: 1.5rem;
 }
 
 ::-webkit-scrollbar {
-    height: 6px;
-    background-color: #f5f5f500;
+    display: none;
+    }
+
+
+
+.SunTime{
+    display: flex;
+    gap: 1rem;
+    color: white;
+    font-size: larger;
+    
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: #3d485200;
-    border-radius: 3px;
+.Temps{
+    display: flex;
+    justify-content: center;
 }
+
+.ImgTemps{
+    width: 10rem;
+    height: 10rem;
+}
+
+.alltemperature{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.temperature{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    font-size: larger;
+}
+
+.pluie{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: larger;
+}
+
+.degrade{
+    width: 148.771px;
+    height: 8.349px;
+    flex-shrink: 0;
+    border-radius: 66px;
+    background: linear-gradient(90deg, #0099DB 0%, #E9F892 48.96%, #FC2D00 100%);
+}
+
+.CardBas{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: larger;
+}
+
+.FooterParent{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.Footer{  
+    color: #636363;
+    text-align: center;
+    margin-bottom: -30px;
+    padding-top: 10px;
+    width: 100%;
+    bottom: 0;
+    
+}
+
+a{
+    color: #636363;
+    text-decoration: none;
+
+}
+
+
+
+@media only screen and (max-width: 768px) {
+   
+ .header{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }   
+ .headerdroit{
+    display: flex;
+    justify-content: center;
+    margin-right: 0px;
+}
+
+.Titre {
+    z-index: 4;
+    font-size: 42px;
+    background: -webkit-linear-gradient(153deg,#3A89FF, #69FFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.descriptif {
+    position: relative;
+    width: 15rem;
+    height: 10rem;
+}
+
+.image {
+    border-radius: 20px;
+    width: 15rem;
+    height: 10rem;
+    object-fit: cover;
+    display: block;
+  }
+  .InfoDirect {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    text-align:center;
+  }
+  }
+
+  @media only screen and (max-width: 400px){
+       
+ .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}  
+    .descriptif {
+        position: relative;
+        width: 10rem;
+        height: 6rem;
+    }
+    
+    .image {
+        border-radius: 20px;
+        width: 10rem;
+        height: 6rem;
+        object-fit: cover;
+        display: block;
+      }
+      .InfoDirect {
+        font-size: x-large;
+      }
+      .container {
+        border-radius: 40px;
+        padding: 10px;
+        padding: 2rem;
+        min-height: 20rem;
+        min-width: 16rem;
+        margin: 1rem;
+ 
+    }
+    
+    
+    .container1 {
+        border-radius: 40px;
+        padding: 0px;
+        padding: 2rem;
+        min-height: 30rem;
+        min-width: 16rem;
+        margin: 1rem;    
+    }
+
+    .Jour {
+        color: aliceblue;
+        font-size: 1.75rem;
+        font-weight: bold;
+        white-space: nowrap;
+        word-wrap: break-word;
+        width: 1rem;
+    }
+    
+  }
