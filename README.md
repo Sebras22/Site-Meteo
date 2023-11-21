@@ -8,4 +8,4 @@ API :
 
   Présentation du site :
 
-![image](https://github.com/Sebras22/Site-Meteo/assets/91453628/276d6457-0f04-4ec1-8cd4-235313b5da5e)
+![image](https://github.com/Sebras22/Site-Meteo/assets/91453628/576e15e0-a832-4f13-a54b-9c4ceb7b7e38)
