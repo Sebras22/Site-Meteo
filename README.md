@@ -5,4 +5,7 @@ Ce site météo combine 2 API combinées afin de savoir quel temps il fait selon
 API : 
 -  https://open-meteo.com/en/docs/
 -  https://open-meteo.com/en/docs/geocoding-api
+
+  Présentation du site :
+
 ![image](https://github.com/Sebras22/Site-Meteo/assets/91453628/276d6457-0f04-4ec1-8cd4-235313b5da5e)
