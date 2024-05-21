@@ -130,6 +130,10 @@ input {
 
 /* Section Météo | Weather Section */
 
+.carrousel{
+    width: 120rem;
+}
+
 .Disposition{
     display: flex;
     justify-content: space-between;
@@ -335,6 +339,10 @@ a{
     transform: translate(-50%, -50%);
     text-align:center;
   }
+
+  .carrousel{
+    width: 49rem;
+}
   }
 
   @media only screen and (max-width: 400px){
@@ -346,12 +354,15 @@ a{
     gap: 20px;
     justify-content: center;
 }  
+    
     .descriptif {
         position: relative;
         width: 10rem;
         height: 6rem;
     }
-    
+    .carrousel{
+        width: 320px;
+    }
     .image {
         border-radius: 20px;
         width: 10rem;
@@ -389,6 +400,9 @@ a{
         white-space: nowrap;
         word-wrap: break-word;
         width: 1rem;
+    }
+    .carrousel{
+        width: 36rem;
     }
     
   }
